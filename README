@@ -1,0 +1,16 @@
+Termana Nexus One .34-rc5 Kernel
+
+To build -
+tar -xvf linux-2.6.34-rc5.tar.gz
+cd linux-2.6.34-rc5.tar.gz
+patch -p1 < ../linux-2.6.34-rc5-nexusone.patch
+patch -p1 < ../ocuv.patch					(OPTIONAL)
+cp arch/arm/configs/termana_mahimahi_defconfig .config
+make ARCH=arm CROSS_COMPILE=PATH_TO_CROSS_COMPILER
+make ARCH=arm CROSS_COMPILE=PATH_TO_CROSS_COMPILER modules_install INSTALL_MOD_PATH=modules
+
+Patch description:
+
+linux-2.6.34-rc5-nexusone.patch - Initial Nexus One Patch
+
+ocuv.patch - Pershoot's modifications (forward ported from .33.2) - OC/UV + Audio increase
