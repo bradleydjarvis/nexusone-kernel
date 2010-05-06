@@ -1,0 +1,13 @@
+Termana Nexus One .34-rc6 Kernel
+
+To build -
+tar -xvf linux-2.6.34-rc6.tar.gz
+cd linux-2.6.34-rc6.tar.gz
+patch -p1 < ../linux-2.6.34-rc6-nexusone.patch
+cp arch/arm/configs/termana_mahimahi_defconfig .config
+make ARCH=arm CROSS_COMPILE=PATH_TO_CROSS_COMPILER
+make ARCH=arm CROSS_COMPILE=PATH_TO_CROSS_COMPILER modules_install INSTALL_MOD_PATH=modules
+
+Patch description:
+
+linux-2.6.34-rc6-nexusone.patch - Initial Nexus One Patch
